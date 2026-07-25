@@ -35,6 +35,9 @@ app = FastAPI(title="GA5 Incident Agent", version="2.0", lifespan=lifespan)
 agent = IncidentAgent()
 
 @app.get("/health")
+@app.head("/health")
+@app.get("/healthz")
+@app.head("/healthz")
 def health_check():
     return {"status": "ok"}
 
