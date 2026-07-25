@@ -15,9 +15,20 @@ from database import (
 from agent import IncidentAgent
 from otlp_builder import build_otlp_trace
 
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("ga5-agent")
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    init_db()
+    logger.info("Starting GA5 Incident Agent application...")
+    try:
+        init_db()
+        logger.info("Database initialized successfully.")
+    except Exception as e:
+        logger.error(f"Failed to initialize database: {e}")
+        raise e
     yield
 
 app = FastAPI(title="GA5 Incident Agent", version="2.0", lifespan=lifespan)

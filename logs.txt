@@ -1,54 +1,54 @@
-2026-07-25T10:16:50.844900962Z [inf]  scheduling build on Metal builder "builder-wbwdri"
-2026-07-25T10:16:50.897849996Z [inf]  unpacking archive
-2026-07-25T10:16:50.987111573Z [inf]  uploading snapshot
-2026-07-25T10:16:51.063655069Z [inf]  [internal] load build definition from Dockerfile
-2026-07-25T10:16:51.063928088Z [inf]  [internal] load build definition from Dockerfile
-2026-07-25T10:16:51.063950862Z [inf]  [internal] load build definition from Dockerfile
-2026-07-25T10:16:51.089331533Z [inf]  [internal] load build definition from Dockerfile
-2026-07-25T10:16:51.096724245Z [inf]  [internal] load metadata for docker.io/library/python:3.11-slim
-2026-07-25T10:16:51.233992491Z [inf]  [internal] load metadata for docker.io/library/python:3.11-slim
-2026-07-25T10:16:51.234522317Z [inf]  [internal] load .dockerignore
-2026-07-25T10:16:51.234543769Z [inf]  [internal] load .dockerignore
-2026-07-25T10:16:51.235082637Z [inf]  [internal] load .dockerignore
-2026-07-25T10:16:51.257191880Z [inf]  [internal] load .dockerignore
-2026-07-25T10:16:51.265756180Z [inf]  [6/6] COPY . .
-2026-07-25T10:16:51.265758383Z [inf]  [5/6] RUN pip install --no-cache-dir -r requirements.txt
-2026-07-25T10:16:51.265759605Z [inf]  [4/6] COPY requirements.txt .
-2026-07-25T10:16:51.265760466Z [inf]  [internal] load build context
-2026-07-25T10:16:51.265761558Z [inf]  [3/6] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential     && rm -rf /var/lib/apt/lists/*
-2026-07-25T10:16:51.265762329Z [inf]  [2/6] WORKDIR /app
-2026-07-25T10:16:51.265764052Z [inf]  [1/6] FROM docker.io/library/python:3.11-slim@sha256:db3ff2e1800a8581e2c48a27c3995339d47bdf046da21c7627accd3d51053a93
-2026-07-25T10:16:51.266102890Z [inf]  [1/6] FROM docker.io/library/python:3.11-slim@sha256:db3ff2e1800a8581e2c48a27c3995339d47bdf046da21c7627accd3d51053a93
-2026-07-25T10:16:51.266109630Z [inf]  [internal] load build context
-2026-07-25T10:16:51.266350371Z [inf]  [internal] load build context
-2026-07-25T10:16:51.275011376Z [inf]  [1/6] FROM docker.io/library/python:3.11-slim@sha256:db3ff2e1800a8581e2c48a27c3995339d47bdf046da21c7627accd3d51053a93
-2026-07-25T10:16:51.335750479Z [inf]  [internal] load build context
-2026-07-25T10:16:51.343679165Z [inf]  [2/6] WORKDIR /app
-2026-07-25T10:16:51.343680577Z [inf]  [3/6] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential     && rm -rf /var/lib/apt/lists/*
-2026-07-25T10:16:51.343681659Z [inf]  [4/6] COPY requirements.txt .
-2026-07-25T10:16:51.343682249Z [inf]  [5/6] RUN pip install --no-cache-dir -r requirements.txt
-2026-07-25T10:16:51.343687027Z [inf]  [6/6] COPY . .
-2026-07-25T10:16:51.530452178Z [inf]  [6/6] COPY . .
-2026-07-25T10:16:51.538219572Z [inf]  exporting to docker image format
-2026-07-25T10:16:52.360591513Z [inf]  exporting to docker image format
-2026-07-25T10:16:52.389975020Z [inf]  containerimage.descriptor: eyJtZWRpYVR5cGUiOiJhcHBsaWNhdGlvbi92bmQub2NpLmltYWdlLm1hbmlmZXN0LnYxK2pzb24iLCJkaWdlc3QiOiJzaGEyNTY6MzZhNGE5NDcyOTk3ZTlmMzZkOTQ1NzNhYTcxNmM1ODhjYWQ5YzFlYzU0ZGFhMjljZDU5MTVjYzY3Y2Q2ZGY5YSIsInNpemUiOjIwMDcsImFubm90YXRpb25zIjp7Im9yZy5vcGVuY29udGFpbmVycy5pbWFnZS5jcmVhdGVkIjoiMjAyNi0wNy0yNVQxMDoxNjo1MVoifSwicGxhdGZvcm0iOnsiYXJjaGl0ZWN0dXJlIjoiYW1kNjQiLCJvcyI6ImxpbnV4In19
-2026-07-25T10:16:52.389979186Z [inf]  containerimage.config.digest: sha256:b42d811dece6ad35923ff022a38f7c224c238fd7cc3108f12b429a9b3beabad0
-2026-07-25T10:16:52.389981390Z [inf]  containerimage.digest: sha256:36a4a9472997e9f36d94573aa716c588cad9c1ec54daa29cd5915cc67cd6df9a
-2026-07-25T10:16:59.654458944Z [inf]  image push
-2026-07-25T10:17:05.425034545Z [inf]  
-2026-07-25T10:17:05.425037962Z [inf]  [35m====================
+2026-07-25T10:21:31.246256099Z [inf]  scheduling build on Metal builder "builder-wbwdri"
+2026-07-25T10:21:31.336474716Z [inf]  unpacking archive
+2026-07-25T10:21:31.441283851Z [inf]  uploading snapshot
+2026-07-25T10:21:31.508195185Z [inf]  [internal] load build definition from Dockerfile
+2026-07-25T10:21:31.508223167Z [inf]  [internal] load build definition from Dockerfile
+2026-07-25T10:21:31.508253672Z [inf]  [internal] load build definition from Dockerfile
+2026-07-25T10:21:31.556596786Z [inf]  [internal] load build definition from Dockerfile
+2026-07-25T10:21:31.564582628Z [inf]  [internal] load metadata for docker.io/library/python:3.11-slim
+2026-07-25T10:21:31.704474872Z [inf]  [internal] load metadata for docker.io/library/python:3.11-slim
+2026-07-25T10:21:31.705136264Z [inf]  [internal] load .dockerignore
+2026-07-25T10:21:31.705303164Z [inf]  [internal] load .dockerignore
+2026-07-25T10:21:31.705561362Z [inf]  [internal] load .dockerignore
+2026-07-25T10:21:31.722970823Z [inf]  [internal] load .dockerignore
+2026-07-25T10:21:31.731385538Z [inf]  [6/6] COPY . .
+2026-07-25T10:21:31.731387771Z [inf]  [5/6] RUN pip install --no-cache-dir -r requirements.txt
+2026-07-25T10:21:31.731389043Z [inf]  [4/6] COPY requirements.txt .
+2026-07-25T10:21:31.731390015Z [inf]  [internal] load build context
+2026-07-25T10:21:31.731390946Z [inf]  [3/6] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential     && rm -rf /var/lib/apt/lists/*
+2026-07-25T10:21:31.731392178Z [inf]  [2/6] WORKDIR /app
+2026-07-25T10:21:31.731393480Z [inf]  [1/6] FROM docker.io/library/python:3.11-slim@sha256:db3ff2e1800a8581e2c48a27c3995339d47bdf046da21c7627accd3d51053a93
+2026-07-25T10:21:31.731784877Z [inf]  [1/6] FROM docker.io/library/python:3.11-slim@sha256:db3ff2e1800a8581e2c48a27c3995339d47bdf046da21c7627accd3d51053a93
+2026-07-25T10:21:31.731786410Z [inf]  [internal] load build context
+2026-07-25T10:21:31.731794922Z [inf]  [internal] load build context
+2026-07-25T10:21:31.748029631Z [inf]  [1/6] FROM docker.io/library/python:3.11-slim@sha256:db3ff2e1800a8581e2c48a27c3995339d47bdf046da21c7627accd3d51053a93
+2026-07-25T10:21:31.752888621Z [inf]  [internal] load build context
+2026-07-25T10:21:31.761342766Z [inf]  [2/6] WORKDIR /app
+2026-07-25T10:21:31.761345320Z [inf]  [3/6] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential     && rm -rf /var/lib/apt/lists/*
+2026-07-25T10:21:31.761346471Z [inf]  [4/6] COPY requirements.txt .
+2026-07-25T10:21:31.761347433Z [inf]  [5/6] RUN pip install --no-cache-dir -r requirements.txt
+2026-07-25T10:21:31.761352380Z [inf]  [6/6] COPY . .
+2026-07-25T10:21:32.125439474Z [inf]  [6/6] COPY . .
+2026-07-25T10:21:32.132276362Z [inf]  exporting to docker image format
+2026-07-25T10:21:32.969716461Z [inf]  exporting to docker image format
+2026-07-25T10:21:33.182564017Z [inf]  containerimage.config.digest: sha256:a8b4c1363cd3678c5635453928e161cd0f911f1d05ee35b4ff308b95b0e78999
+2026-07-25T10:21:33.182569815Z [inf]  containerimage.digest: sha256:94c1c49511af2758183f8aa3ffd38e45046e9b6ead054e8d78c7d2006ef442d5
+2026-07-25T10:21:33.182573331Z [inf]  containerimage.descriptor: eyJtZWRpYVR5cGUiOiJhcHBsaWNhdGlvbi92bmQub2NpLmltYWdlLm1hbmlmZXN0LnYxK2pzb24iLCJkaWdlc3QiOiJzaGEyNTY6OTRjMWM0OTUxMWFmMjc1ODE4M2Y4YWEzZmZkMzhlNDUwNDZlOWI2ZWFkMDU0ZThkNzhjN2QyMDA2ZWY0NDJkNSIsInNpemUiOjIwMDcsImFubm90YXRpb25zIjp7Im9yZy5vcGVuY29udGFpbmVycy5pbWFnZS5jcmVhdGVkIjoiMjAyNi0wNy0yNVQxMDoyMTozMloifSwicGxhdGZvcm0iOnsiYXJjaGl0ZWN0dXJlIjoiYW1kNjQiLCJvcyI6ImxpbnV4In19
+2026-07-25T10:21:40.574736123Z [inf]  image push
+2026-07-25T10:21:47.442791080Z [inf]  
+2026-07-25T10:21:47.442792968Z [inf]  [35m====================
 Starting Healthcheck
 ====================
 [0m
-2026-07-25T10:17:05.425038838Z [inf]  [37mPath: /health[0m
-2026-07-25T10:17:05.425039588Z [inf]  [37mRetry window: 1m40s[0m
-2026-07-25T10:17:05.425040569Z [inf]  
-2026-07-25T10:17:07.525369223Z [inf]  [93mAttempt #1 failed with service unavailable. Continuing to retry for 1m37s[0m
-2026-07-25T10:17:18.563132781Z [inf]  [93mAttempt #2 failed with service unavailable. Continuing to retry for 1m26s[0m
-2026-07-25T10:17:30.601830369Z [inf]  [93mAttempt #3 failed with service unavailable. Continuing to retry for 1m14s[0m
-2026-07-25T10:17:44.644265251Z [inf]  [93mAttempt #4 failed with service unavailable. Continuing to retry for 1m0s[0m
-2026-07-25T10:18:02.694652934Z [inf]  [93mAttempt #5 failed with service unavailable. Continuing to retry for 42s[0m
-2026-07-25T10:18:28.735699633Z [inf]  [93mAttempt #6 failed with service unavailable. Continuing to retry for 16s[0m
-2026-07-25T10:18:28.798857341Z [inf]  
-2026-07-25T10:18:28.798860765Z [inf]  [91m1/1 replicas never became healthy![0m
-2026-07-25T10:18:28.798861595Z [inf]  [91mHealthcheck failed![0m
+2026-07-25T10:21:47.442794211Z [inf]  [37mPath: /health[0m
+2026-07-25T10:21:47.442794989Z [inf]  [37mRetry window: 1m40s[0m
+2026-07-25T10:21:47.442795635Z [inf]  
+2026-07-25T10:21:57.512142396Z [inf]  [93mAttempt #1 failed with service unavailable. Continuing to retry for 1m29s[0m
+2026-07-25T10:22:08.553649560Z [inf]  [93mAttempt #2 failed with service unavailable. Continuing to retry for 1m18s[0m
+2026-07-25T10:22:20.605281507Z [inf]  [93mAttempt #3 failed with service unavailable. Continuing to retry for 1m6s[0m
+2026-07-25T10:22:34.647703940Z [inf]  [93mAttempt #4 failed with service unavailable. Continuing to retry for 52s[0m
+2026-07-25T10:22:52.686306565Z [inf]  [93mAttempt #5 failed with service unavailable. Continuing to retry for 34s[0m
+2026-07-25T10:23:18.728775337Z [inf]  [93mAttempt #6 failed with service unavailable. Continuing to retry for 8s[0m
+2026-07-25T10:23:18.787183889Z [inf]  
+2026-07-25T10:23:18.787190738Z [inf]  [91m1/1 replicas never became healthy![0m
+2026-07-25T10:23:18.787191363Z [inf]  [91mHealthcheck failed![0m
