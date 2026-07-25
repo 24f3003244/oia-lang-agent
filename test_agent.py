@@ -4,13 +4,16 @@ import os
 import uuid
 from fastapi.testclient import TestClient
 from main import app
-from database import init_db
+from database import DB_PATH, init_db
 
 client = TestClient(app)
 
 def test_full_incident_flow():
-    if os.path.exists("incidents.db"):
-        os.remove("incidents.db")
+    if os.path.exists(DB_PATH):
+        try:
+            os.remove(DB_PATH)
+        except Exception:
+            pass
     init_db()
 
     run_id = f"test_run_{uuid.uuid4().hex[:8]}"

@@ -4,7 +4,10 @@ import hashlib
 import os
 from typing import Optional, Tuple, Dict, Any
 
-DB_PATH = os.getenv("DB_PATH", "incidents.db")
+import tempfile
+
+DEFAULT_DB = os.path.join(tempfile.gettempdir(), "incidents.db")
+DB_PATH = os.getenv("DB_PATH", DEFAULT_DB)
 
 def get_db():
     conn = sqlite3.connect(DB_PATH, timeout=10)
