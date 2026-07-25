@@ -14,7 +14,7 @@ from otlp_builder import make_attr, build_otlp_trace
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
-OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 
 def generate_hex_id(num_bytes: int) -> str:
     return secrets.token_hex(num_bytes)
@@ -179,7 +179,7 @@ def plan_node(state: IncidentState) -> IncidentState:
     )
 
     import time
-    model_to_use = os.getenv("OPENAI_MODEL", "gpt-4o")
+    model_to_use = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
     max_retries = 4
     backoff = 1.0
     parsed = None
