@@ -23,3 +23,40 @@
 2026-07-25T10:38:46.058473101Z [inf]  INFO:     100.64.0.4:18862 - "POST /v2/incidents HTTP/1.1" 400 Bad Request
 2026-07-25T10:38:46.598902163Z [inf]  INFO:     100.64.0.5:48622 - "POST /v2/incidents HTTP/1.1" 409 Conflict
 2026-07-25T10:38:46.598905467Z [inf]  INFO:     100.64.0.6:44904 - "GET /v2/incidents/run_WsfZBdf4veB7MDMnVbi72G HTTP/1.1" 200 OK
+
+# PAYLOAD THAT GRADER IS SENDING
+{
+    "email": "24f3003244@ds.study.iitm.ac.in",
+    "quizSign": "NI0pegveKK/+YEYFwa/MpmMxxt9bSnR+YxzRvS3ub4IT8t3Da/EXuptlGS+fRlMVz3o0sReQda9j5hWfvBhiVsb1XvBuI7J0FxEDpDv0FbrOcpqwWZMzUOhQMUOoWgaq92DTHPt4Zx4pS9D+gAgm/MzQWC1d8OQlxDe3UZ7ZecD9gbYfIoSspsPk+pKE6dFQza07FDvYrIB8ktYTNhi6Hhteo+X8vX7XukQRnc/kDjdtiG46mGaKX+NiT/Ib3+cm49k3rbJ2FaAIe4vf1plsos5ij61y36LGNIz6+z1dH5ylR2tfwXC9yfQ5Azs8dVKRSqRNXrKq9QK4VBp649LWzQ==",
+    "response": "https://oia-lang-agent-production.up.railway.app/",
+    "weight": 4,
+    "questionId": "q-agent-trace-integrity-server",
+    "version": "v2"
+}
+
+# RESPONSE
+{
+    "scenarios": 7,
+    "categories": {
+        "proposal": 0,
+        "semantics": 0,
+        "topology": 0,
+        "correlation": 0,
+        "lifecycle": 0,
+        "durability": 0,
+        "redaction": 0
+    },
+    "validationOkay": true,
+    "validationDetail": "",
+    "transport": [],
+    "transportDetails": [],
+    "guidance": [
+        "Proposal: return a supported root cause, the required evidence IDs, and diagnostic tool dispatches before effects.",
+        "Action semantics: use the required tool and exact case-derived arguments, then report its real result.",
+        "Trace topology: check trace continuity, unique span IDs, parent links, span counts, and the final join.",
+        "Correlation: connect action, call, attempt, approval, and receipt identifiers consistently across spans and logs.",
+        "Lifecycle: represent retries, timeouts, approvals, and effects in their actual order and final state.",
+        "Durability: persist before responding; exact replay and later GET must return the same terminal state.",
+        "Redaction: exclude secrets, prompt text, and raw tool arguments or results from responses and telemetry."
+    ]
+}
