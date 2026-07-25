@@ -1,19 +1,48 @@
 from typing import List, Dict, Any, Optional
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, AliasChoices
 
-# --- OpenAI Structured Output Schemas ---
+# --- OpenAI Structured Output Schemas with Robust Alias Choices ---
 
 class DiagnosticCallSpec(BaseModel):
-    toolName: str = Field(description="Name of the diagnostic tool from the tool catalog")
-    arguments: Dict[str, Any] = Field(description="Incident-specific arguments matching tool input schema")
-    evidence: List[str] = Field(description="Citation of 1 to 4 evidence IDs supporting this specific diagnostic call")
+    toolName: str = Field(
+        validation_alias=AliasChoices("toolName", "tool_name", "name"),
+        description="Name of the diagnostic tool from the tool catalog"
+    )
+    arguments: Dict[str, Any] = Field(
+        default_factory=dict,
+        validation_alias=AliasChoices("arguments", "args"),
+        description="Incident-specific arguments matching tool input schema"
+    )
+    evidence: List[str] = Field(
+        default_factory=list,
+        validation_alias=AliasChoices("evidence", "evidence_ids", "evidenceIds"),
+        description="Citation of 1 to 4 evidence IDs supporting this specific diagnostic call"
+    )
 
 class DiagnosisAndPlan(BaseModel):
-    rootCause: str = Field(description="Selected root cause, exactly one value from allowedRootCauses")
-    evidence: List[str] = Field(description="Two to four evidence IDs cited from the transcript (e.g. ['ev_101', 'ev_102'])")
-    diagnosticCalls: List[DiagnosticCallSpec] = Field(description="1 to 3 necessary diagnostic tool calls to confirm root cause")
-    effectToolName: str = Field(description="Selected recovery effect tool from policy.effectTools")
-    effectArguments: Dict[str, Any] = Field(description="Arguments for the recovery effect tool matching its schema")
+    rootCause: str = Field(
+        validation_alias=AliasChoices("rootCause", "root_cause", "rootcause"),
+        description="Selected root cause, exactly one value from allowedRootCauses"
+    )
+    evidence: List[str] = Field(
+        default_factory=list,
+        validation_alias=AliasChoices("evidence", "evidence_ids", "evidenceIds"),
+        description="Two to four evidence IDs cited from the transcript (e.g. ['ev_101', 'ev_102'])"
+    )
+    diagnosticCalls: List[DiagnosticCallSpec] = Field(
+        default_factory=list,
+        validation_alias=AliasChoices("diagnosticCalls", "diagnostic_calls", "diagnostics", "diagnostic_tools"),
+        description="1 to 3 necessary diagnostic tool calls to confirm root cause"
+    )
+    effectToolName: str = Field(
+        validation_alias=AliasChoices("effectToolName", "effect_tool_name", "effect_tool", "chosen_effect", "chosenEffect"),
+        description="Selected recovery effect tool from policy.effectTools"
+    )
+    effectArguments: Dict[str, Any] = Field(
+        default_factory=dict,
+        validation_alias=AliasChoices("effectArguments", "effect_arguments", "effect_args", "effectArgs"),
+        description="Arguments for the recovery effect tool matching its schema"
+    )
 
 
 # --- API Request Schemas ---

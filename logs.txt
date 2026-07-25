@@ -1,54 +1,25 @@
-2026-07-25T10:21:31.246256099Z [inf]  scheduling build on Metal builder "builder-wbwdri"
-2026-07-25T10:21:31.336474716Z [inf]  unpacking archive
-2026-07-25T10:21:31.441283851Z [inf]  uploading snapshot
-2026-07-25T10:21:31.508195185Z [inf]  [internal] load build definition from Dockerfile
-2026-07-25T10:21:31.508223167Z [inf]  [internal] load build definition from Dockerfile
-2026-07-25T10:21:31.508253672Z [inf]  [internal] load build definition from Dockerfile
-2026-07-25T10:21:31.556596786Z [inf]  [internal] load build definition from Dockerfile
-2026-07-25T10:21:31.564582628Z [inf]  [internal] load metadata for docker.io/library/python:3.11-slim
-2026-07-25T10:21:31.704474872Z [inf]  [internal] load metadata for docker.io/library/python:3.11-slim
-2026-07-25T10:21:31.705136264Z [inf]  [internal] load .dockerignore
-2026-07-25T10:21:31.705303164Z [inf]  [internal] load .dockerignore
-2026-07-25T10:21:31.705561362Z [inf]  [internal] load .dockerignore
-2026-07-25T10:21:31.722970823Z [inf]  [internal] load .dockerignore
-2026-07-25T10:21:31.731385538Z [inf]  [6/6] COPY . .
-2026-07-25T10:21:31.731387771Z [inf]  [5/6] RUN pip install --no-cache-dir -r requirements.txt
-2026-07-25T10:21:31.731389043Z [inf]  [4/6] COPY requirements.txt .
-2026-07-25T10:21:31.731390015Z [inf]  [internal] load build context
-2026-07-25T10:21:31.731390946Z [inf]  [3/6] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential     && rm -rf /var/lib/apt/lists/*
-2026-07-25T10:21:31.731392178Z [inf]  [2/6] WORKDIR /app
-2026-07-25T10:21:31.731393480Z [inf]  [1/6] FROM docker.io/library/python:3.11-slim@sha256:db3ff2e1800a8581e2c48a27c3995339d47bdf046da21c7627accd3d51053a93
-2026-07-25T10:21:31.731784877Z [inf]  [1/6] FROM docker.io/library/python:3.11-slim@sha256:db3ff2e1800a8581e2c48a27c3995339d47bdf046da21c7627accd3d51053a93
-2026-07-25T10:21:31.731786410Z [inf]  [internal] load build context
-2026-07-25T10:21:31.731794922Z [inf]  [internal] load build context
-2026-07-25T10:21:31.748029631Z [inf]  [1/6] FROM docker.io/library/python:3.11-slim@sha256:db3ff2e1800a8581e2c48a27c3995339d47bdf046da21c7627accd3d51053a93
-2026-07-25T10:21:31.752888621Z [inf]  [internal] load build context
-2026-07-25T10:21:31.761342766Z [inf]  [2/6] WORKDIR /app
-2026-07-25T10:21:31.761345320Z [inf]  [3/6] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential     && rm -rf /var/lib/apt/lists/*
-2026-07-25T10:21:31.761346471Z [inf]  [4/6] COPY requirements.txt .
-2026-07-25T10:21:31.761347433Z [inf]  [5/6] RUN pip install --no-cache-dir -r requirements.txt
-2026-07-25T10:21:31.761352380Z [inf]  [6/6] COPY . .
-2026-07-25T10:21:32.125439474Z [inf]  [6/6] COPY . .
-2026-07-25T10:21:32.132276362Z [inf]  exporting to docker image format
-2026-07-25T10:21:32.969716461Z [inf]  exporting to docker image format
-2026-07-25T10:21:33.182564017Z [inf]  containerimage.config.digest: sha256:a8b4c1363cd3678c5635453928e161cd0f911f1d05ee35b4ff308b95b0e78999
-2026-07-25T10:21:33.182569815Z [inf]  containerimage.digest: sha256:94c1c49511af2758183f8aa3ffd38e45046e9b6ead054e8d78c7d2006ef442d5
-2026-07-25T10:21:33.182573331Z [inf]  containerimage.descriptor: eyJtZWRpYVR5cGUiOiJhcHBsaWNhdGlvbi92bmQub2NpLmltYWdlLm1hbmlmZXN0LnYxK2pzb24iLCJkaWdlc3QiOiJzaGEyNTY6OTRjMWM0OTUxMWFmMjc1ODE4M2Y4YWEzZmZkMzhlNDUwNDZlOWI2ZWFkMDU0ZThkNzhjN2QyMDA2ZWY0NDJkNSIsInNpemUiOjIwMDcsImFubm90YXRpb25zIjp7Im9yZy5vcGVuY29udGFpbmVycy5pbWFnZS5jcmVhdGVkIjoiMjAyNi0wNy0yNVQxMDoyMTozMloifSwicGxhdGZvcm0iOnsiYXJjaGl0ZWN0dXJlIjoiYW1kNjQiLCJvcyI6ImxpbnV4In19
-2026-07-25T10:21:40.574736123Z [inf]  image push
-2026-07-25T10:21:47.442791080Z [inf]  
-2026-07-25T10:21:47.442792968Z [inf]  [35m====================
-Starting Healthcheck
-====================
-[0m
-2026-07-25T10:21:47.442794211Z [inf]  [37mPath: /health[0m
-2026-07-25T10:21:47.442794989Z [inf]  [37mRetry window: 1m40s[0m
-2026-07-25T10:21:47.442795635Z [inf]  
-2026-07-25T10:21:57.512142396Z [inf]  [93mAttempt #1 failed with service unavailable. Continuing to retry for 1m29s[0m
-2026-07-25T10:22:08.553649560Z [inf]  [93mAttempt #2 failed with service unavailable. Continuing to retry for 1m18s[0m
-2026-07-25T10:22:20.605281507Z [inf]  [93mAttempt #3 failed with service unavailable. Continuing to retry for 1m6s[0m
-2026-07-25T10:22:34.647703940Z [inf]  [93mAttempt #4 failed with service unavailable. Continuing to retry for 52s[0m
-2026-07-25T10:22:52.686306565Z [inf]  [93mAttempt #5 failed with service unavailable. Continuing to retry for 34s[0m
-2026-07-25T10:23:18.728775337Z [inf]  [93mAttempt #6 failed with service unavailable. Continuing to retry for 8s[0m
-2026-07-25T10:23:18.787183889Z [inf]  
-2026-07-25T10:23:18.787190738Z [inf]  [91m1/1 replicas never became healthy![0m
-2026-07-25T10:23:18.787191363Z [inf]  [91mHealthcheck failed![0m
+2026-07-25T10:37:16.830297626Z [inf]  Starting Container
+2026-07-25T10:37:17.766736153Z [err]  INFO:     Started server process [2]
+2026-07-25T10:37:17.766739001Z [err]  INFO:     Waiting for application startup.
+2026-07-25T10:37:17.766742256Z [err]  INFO:ga5-agent:Starting GA5 Incident Agent application...
+2026-07-25T10:37:17.766745298Z [err]  INFO:ga5-agent:Database initialized successfully.
+2026-07-25T10:37:17.766748692Z [err]  INFO:     Application startup complete.
+2026-07-25T10:37:17.766752084Z [err]  INFO:     Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+2026-07-25T10:37:18.049219028Z [inf]  INFO:     100.64.0.2:50675 - "GET /health HTTP/1.1" 200 OK
+2026-07-25T10:38:29.206656261Z [err]  INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-25T10:38:29.206659850Z [inf]  INFO:     100.64.0.3:36896 - "POST /v2/incidents HTTP/1.1" 200 OK
+2026-07-25T10:38:29.649783662Z [err]  INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-25T10:38:29.673824190Z [inf]  INFO:     100.64.0.4:18862 - "POST /v2/incidents HTTP/1.1" 200 OK
+2026-07-25T10:38:33.336148432Z [err]  INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-25T10:38:33.336151967Z [inf]  INFO:     100.64.0.5:50852 - "POST /v2/incidents HTTP/1.1" 200 OK
+2026-07-25T10:38:36.407441728Z [err]  INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-25T10:38:36.407444437Z [inf]  INFO:     100.64.0.4:18862 - "POST /v2/incidents HTTP/1.1" 200 OK
+2026-07-25T10:38:39.773760693Z [err]  INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-25T10:38:39.798733946Z [inf]  INFO:     100.64.0.3:21988 - "POST /v2/incidents HTTP/1.1" 200 OK
+2026-07-25T10:38:42.642781445Z [err]  INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-25T10:38:42.672566624Z [inf]  INFO:     100.64.0.4:18862 - "POST /v2/incidents HTTP/1.1" 200 OK
+2026-07-25T10:38:45.767841886Z [err]  INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-25T10:38:45.789254638Z [inf]  INFO:     100.64.0.5:48622 - "POST /v2/incidents HTTP/1.1" 200 OK
+2026-07-25T10:38:46.058473101Z [inf]  INFO:     100.64.0.4:18862 - "POST /v2/incidents HTTP/1.1" 400 Bad Request
+2026-07-25T10:38:46.598902163Z [inf]  INFO:     100.64.0.5:48622 - "POST /v2/incidents HTTP/1.1" 409 Conflict
+2026-07-25T10:38:46.598905467Z [inf]  INFO:     100.64.0.6:44904 - "GET /v2/incidents/run_WsfZBdf4veB7MDMnVbi72G HTTP/1.1" 200 OK
