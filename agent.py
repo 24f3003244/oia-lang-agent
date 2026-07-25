@@ -120,20 +120,41 @@ def plan_node(state: IncidentState) -> IncidentState:
         "4. Choose 1 recovery effectToolName from policy.effectTools with valid arguments.\n"
     )
 
+    json_system_prompt = (
+        system_prompt +
+        "\nIMPORTANT: Respond strictly with a JSON object matching this schema structure:\n" +
+        json.dumps({
+            "rootCause": "one allowed root cause string from allowedRootCauses",
+            "evidence": ["ev_101", "ev_102"],
+            "diagnosticCalls": [
+                {
+                    "toolName": "tool_name_from_catalog",
+                    "arguments": {"param": "val"},
+                    "evidence": ["ev_101"]
+                }
+            ],
+            "effectToolName": "effect_tool_name_from_effectTools",
+            "effectArguments": {"param": "val"}
+        })
+    )
+
     try:
         if not client:
-            raise ValueError("No API Key")
-        completion = client.beta.chat.completions.parse(
+            raise ValueError("No API Key configured")
+        completion = client.chat.completions.create(
             model=OPENAI_MODEL,
             messages=[
-                {"role": "system", "content": system_prompt},
+                {"role": "system", "content": json_system_prompt},
                 {"role": "user", "content": json.dumps(prompt_data)}
             ],
-            response_format=DiagnosisAndPlan,
+            response_format={"type": "json_object"},
             temperature=0.0
         )
-        parsed: DiagnosisAndPlan = completion.choices[0].message.parsed
-    except Exception:
+        raw_content = completion.choices[0].message.content or "{}"
+        parsed = DiagnosisAndPlan.model_validate_json(raw_content)
+    except Exception as err:
+        import logging
+        logging.getLogger("ga5-agent").error(f"OpenAI completion error: {err}")
         root_cause = req.incident.allowedRootCauses[0] if req.incident.allowedRootCauses else "unknown_cause"
         ev_subset = found_ev_ids[:3] if len(found_ev_ids) >= 2 else ["ev_01", "ev_02"]
         diag_tools = [t for t in req.toolCatalog if t.get("name") not in req.policy.effectTools]
