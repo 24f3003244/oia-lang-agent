@@ -178,25 +178,42 @@ def plan_node(state: IncidentState) -> IncidentState:
         json.dumps(json_structure_guide)
     )
 
+    import time
     model_to_use = os.getenv("OPENAI_MODEL", "gpt-4o")
+    max_retries = 4
+    backoff = 1.0
+    parsed = None
 
-    try:
-        if not client:
-            raise ValueError("No API Key configured")
-        completion = client.chat.completions.create(
-            model=model_to_use,
-            messages=[
-                {"role": "system", "content": json_system_prompt},
-                {"role": "user", "content": json.dumps(prompt_data)}
-            ],
-            response_format={"type": "json_object"},
-            temperature=0.0
-        )
-        raw_content = completion.choices[0].message.content or "{}"
-        parsed = DiagnosisAndPlan.model_validate_json(raw_content)
-    except Exception as err:
-        import logging
-        logging.getLogger("ga5-agent").error(f"OpenAI completion error: {err}")
+    for attempt in range(max_retries):
+        current_model = model_to_use if attempt == 0 else "gpt-4o-mini"
+        try:
+            if not client:
+                raise ValueError("No API Key configured")
+            completion = client.chat.completions.create(
+                model=current_model,
+                messages=[
+                    {"role": "system", "content": json_system_prompt},
+                    {"role": "user", "content": json.dumps(prompt_data)}
+                ],
+                response_format={"type": "json_object"},
+                temperature=0.0
+            )
+            raw_content = completion.choices[0].message.content or "{}"
+            parsed = DiagnosisAndPlan.model_validate_json(raw_content)
+            model_to_use = current_model
+            break
+        except Exception as err:
+            import logging
+            err_msg = str(err)
+            logging.getLogger("ga5-agent").warning(f"OpenAI attempt {attempt+1} ({current_model}) error: {err}")
+            if "429" in err_msg or "rate_limit" in err_msg.lower() or "too many requests" in err_msg.lower():
+                time.sleep(backoff)
+                backoff *= 1.5
+            else:
+                if attempt == max_retries - 1:
+                    break
+
+    if parsed is None:
         root_cause = req.incident.allowedRootCauses[0] if req.incident.allowedRootCauses else "unknown_cause"
         ev_subset = found_ev_ids[:3] if len(found_ev_ids) >= 2 else ["ev_01", "ev_02"]
         first_diag = sample_diag_tool
